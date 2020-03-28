@@ -44,5 +44,8 @@
 		</plugins>
 	</build>
 
+	<scm>
+		<developerConnection>scm:git:https://github.com/OliveiraLucas10/sf-pet-clinic.git</developerConnection>
+	</scm>
 
 </project>
