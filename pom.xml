@@ -10,7 +10,7 @@
 
 	<groupId>com.oliveiralucaspro</groupId>
 	<artifactId>sf-pet-clinic</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<modules>
 		<module>pet-clinic-web</module>
