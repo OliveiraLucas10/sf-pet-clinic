@@ -1,10 +1,13 @@
 package com.oliveiralucaspro.sfgpetclinic.model;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Owner extends Person {
+public class BaseEntity implements Serializable{
 
+    private Long id;
 }

@@ -2,10 +2,12 @@ package com.oliveiralucaspro.sfgpetclinic.model;
 
 import java.time.LocalDate;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class Pet {
+@Getter
+@Setter
+public class Pet extends BaseEntity {
 
     private PetType petType;
     private Owner owner;
