@@ -1,8 +1,10 @@
 package com.oliveiralucaspro.sfgpetclinic.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class Vet extends Person{
+@Getter
+@Setter
+public class Vet extends Person {
 
 }

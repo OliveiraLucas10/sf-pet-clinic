@@ -16,8 +16,6 @@ public class OwnerController {
 	this.ownerService = ownerService;
     }
 
-
-
     @RequestMapping({ "", "/", "/index", "/intex.html" })
     public String listOwners(Model model) {
 
