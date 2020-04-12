@@ -10,11 +10,14 @@ import com.oliveiralucaspro.sfgpetclinic.model.Pet;
 import com.oliveiralucaspro.sfgpetclinic.model.PetType;
 import com.oliveiralucaspro.sfgpetclinic.model.Specialty;
 import com.oliveiralucaspro.sfgpetclinic.model.Vet;
+import com.oliveiralucaspro.sfgpetclinic.model.Visit;
+import com.oliveiralucaspro.sfgpetclinic.repositories.VisitRepository;
 import com.oliveiralucaspro.sfgpetclinic.services.OwnerService;
 import com.oliveiralucaspro.sfgpetclinic.services.PetService;
 import com.oliveiralucaspro.sfgpetclinic.services.PetTypeService;
 import com.oliveiralucaspro.sfgpetclinic.services.SpecialtyService;
 import com.oliveiralucaspro.sfgpetclinic.services.VetService;
+import com.oliveiralucaspro.sfgpetclinic.services.VisitService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,6 +29,7 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -88,8 +92,16 @@ public class DataLoader implements CommandLineRunner {
 	fionasCat.setBirthDate(LocalDate.now());
 	fionasCat.setName("Cat");
 	owner2.getPets().add(fionasCat);
-
+	
 	ownerService.save(owner2);
+	
+	Visit catVisit = new Visit();
+	catVisit.setPet(fionasCat);
+	catVisit.setDate(LocalDate.now());
+	catVisit.setDescription("Sneezy Kitty");
+	visitService.save(catVisit);
+	
+
 
 	System.out.println("Loading Owners ....");
 
