@@ -1,12 +1,15 @@
 package com.oliveiralucaspro.sfgpetclinic.controllers;
 
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import com.oliveiralucaspro.sfgpetclinic.services.OwnerService;
 
-@RequestMapping("owners")
+@RequestMapping("/owners")
 @Controller
 public class OwnerController {
 

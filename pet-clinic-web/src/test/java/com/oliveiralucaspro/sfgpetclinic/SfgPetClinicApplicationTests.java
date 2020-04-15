@@ -11,7 +11,6 @@ class SfgPetClinicApplicationTests {
 
 	@Test
 	void contextLoads() {
-	    assertEquals();
 	}
 
 }
