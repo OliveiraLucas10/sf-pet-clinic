@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.oliveiralucaspro.sfgpetclinic.model.Owner;
 import com.oliveiralucaspro.sfgpetclinic.repositories.OwnerRepository;
-import com.oliveiralucaspro.sfgpetclinic.repositories.PetRepository;
 import com.oliveiralucaspro.sfgpetclinic.services.OwnerService;
 
 import lombok.AllArgsConstructor;
@@ -19,7 +18,6 @@ import lombok.AllArgsConstructor;
 public class OwnerSDJpaService implements OwnerService {
 
     private final OwnerRepository ownerRepository;
-    private final PetRepository petRepository;
 
     @Override
     public Set<Owner> findAll() {
