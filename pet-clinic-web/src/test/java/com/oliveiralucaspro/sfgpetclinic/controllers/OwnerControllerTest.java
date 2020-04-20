@@ -1,5 +1,9 @@
 package com.oliveiralucaspro.sfgpetclinic.controllers;
 
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -10,7 +14,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -56,7 +59,8 @@ class OwnerControllerTest {
 	when(ownerService.findAll()).thenReturn(owners);
 
 	mockMvc.perform(get("/owners")).andExpect(status().isOk()).andExpect(view().name("owners/index"))
-		.andExpect(model().attribute("owners", Matchers.hasSize(2)));
+		.andExpect(model().attribute("owners", hasSize(2)));
+	;
     }
 
     @Test
@@ -64,7 +68,8 @@ class OwnerControllerTest {
 	when(ownerService.findAll()).thenReturn(owners);
 
 	mockMvc.perform(get("/owners/index")).andExpect(status().isOk()).andExpect(view().name("owners/index"))
-		.andExpect(model().attribute("owners", Matchers.hasSize(2)));
+		.andExpect(model().attribute("owners", hasSize(2)));
+	;
     }
 
     @Test
@@ -72,6 +77,17 @@ class OwnerControllerTest {
 	mockMvc.perform(get("/owners/find")).andExpect(status().isOk()).andExpect(view().name("notImplemented"));
 
 	verifyNoInteractions(ownerService);
+    }
+
+    @Test
+    void testDisplayOwner() throws Exception {
+	Owner owner1 = new Owner();
+	owner1.setId(1L);
+
+	when(ownerService.findById(anyLong())).thenReturn(owner1);
+
+	mockMvc.perform(get("/owners/123")).andExpect(status().isOk()).andExpect(view().name("owners/ownerDetails"))
+		.andExpect(model().attribute("owner", hasProperty("id", is(1l))));
     }
 
 }
