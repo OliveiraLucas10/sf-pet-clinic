@@ -81,7 +81,7 @@ class OwnerControllerTest {
 
     @Test
     void testDisplayOwner() throws Exception {
-	Owner owner1 = new Owner(); 
+	Owner owner1 = new Owner();
 	owner1.setId(1L);
 
 	when(ownerService.findById(anyLong())).thenReturn(owner1);
