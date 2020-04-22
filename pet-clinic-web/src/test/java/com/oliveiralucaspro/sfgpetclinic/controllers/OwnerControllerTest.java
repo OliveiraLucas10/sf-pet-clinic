@@ -7,6 +7,7 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -116,12 +117,14 @@ class OwnerControllerTest {
 
     @Test
     void initUpdateOwnerForm() throws Exception {
-	when(ownerService.findById(anyLong())).thenReturn(Owner.builder().id(1l).build());
+        when(ownerService.findById(anyLong())).thenReturn(Owner.builder().id(1l).build());
 
-	mockMvc.perform(get("/owners/1/edit")).andExpect(status().isOk())
-		.andExpect(view().name("owners/createOrUpdateOwnerForm")).andExpect(model().attributeExists("owner"));
+        mockMvc.perform(get("/owners/1/edit"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/createOrUpdateOwnerForm"))
+                .andExpect(model().attributeExists("owner"));
 
-	verifyNoInteractions(ownerService);
+        verifyZeroInteractions(ownerService);
     }
 
     @Test
