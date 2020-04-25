@@ -10,7 +10,7 @@
 
 	<groupId>com.oliveiralucaspro</groupId>
 	<artifactId>sf-pet-clinic</artifactId>
-	<version>0.0.3</version>
+	<version>0.0.4-SNAPSHOT</version>
 
 	<modules>
 		<module>pet-clinic-web</module>
@@ -94,7 +94,7 @@
 
 	<scm>
 		<developerConnection>scm:git:https://github.com/OliveiraLucas10/sf-pet-clinic.git</developerConnection>
-		<tag>sf-pet-clinic-0.0.3</tag>
+		<tag>sf-pet-clinic-0.0.1</tag>
 	</scm>
 
 </project>
